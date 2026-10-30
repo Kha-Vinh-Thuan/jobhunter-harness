@@ -1,13 +1,18 @@
 """Validate engineering progress and serialize every mutation with optimistic locking."""
 
 import copy
-import fcntl
 import json
 import os
 import tempfile
 from contextlib import contextmanager
 from datetime import datetime, timezone
 from pathlib import Path
+
+try:
+    import fcntl
+except ImportError:  # Windows
+    fcntl = None
+    import msvcrt
 
 from jsonschema import Draft202012Validator, FormatChecker
 
@@ -36,11 +41,12 @@ def atomic_json(path: Path, value: dict) -> None:
             stream.flush()
             os.fsync(stream.fileno())
         os.replace(name, path)
-        directory = os.open(path.parent, os.O_RDONLY)
-        try:
-            os.fsync(directory)
-        finally:
-            os.close(directory)
+        if os.name == "posix":  # Windows cannot open a directory to fsync it
+            directory = os.open(path.parent, os.O_RDONLY)
+            try:
+                os.fsync(directory)
+            finally:
+                os.close(directory)
     finally:
         if os.path.exists(name):
             os.unlink(name)
@@ -123,11 +129,24 @@ class ProgressStore:
         state = self.root / ".state"
         state.mkdir(exist_ok=True)
         with (state / "progress.lock").open("a", encoding="utf-8") as lock:
-            fcntl.flock(lock, fcntl.LOCK_EX)
+            if fcntl:
+                fcntl.flock(lock, fcntl.LOCK_EX)
+            else:
+                lock.seek(0)
+                while True:  # LK_LOCK gives up after ~10s; keep blocking like flock
+                    try:
+                        msvcrt.locking(lock.fileno(), msvcrt.LK_LOCK, 1)
+                        break
+                    except OSError:
+                        pass
             try:
                 yield
             finally:
-                fcntl.flock(lock, fcntl.LOCK_UN)
+                if fcntl:
+                    fcntl.flock(lock, fcntl.LOCK_UN)
+                else:
+                    lock.seek(0)
+                    msvcrt.locking(lock.fileno(), msvcrt.LK_UNLCK, 1)
 
     def read(self) -> dict:
         return read_json(self.path)

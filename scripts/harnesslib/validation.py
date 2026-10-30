@@ -53,7 +53,7 @@ def validate(root: Path) -> dict:
             expected = ["$(git rev-parse --show-toplevel)/.venv/bin/python", "$(git rev-parse --show-toplevel)/scripts/harness.py", "hook", event, "--native"]
             if handler.get("type") != "command" or shlex.split(handler["command"]) != expected:
                 raise ValueError(f"{event}: use the portable Git-root hook paths and review trust again")
-            if not (root / ".venv/bin/python").is_file() or not 0 < handler.get("timeout", 0) <= (3 if event == "Interrupt" else 10):
+            if not any((root / ".venv" / exe).is_file() for exe in ("bin/python", "Scripts/python.exe")) or not 0 < handler.get("timeout", 0) <= (3 if event == "Interrupt" else 10):
                 raise ValueError(f"{event}: missing virtual environment or invalid timeout")
         checks.append("Codex configuration and development agent definitions")
     except (OSError, ValueError, KeyError) as error:
@@ -73,7 +73,8 @@ def validate(root: Path) -> dict:
         sources = read_json(root / "context/sources.json")
         for source in sources["notion"]:
             path = root / source["snapshot"]
-            if hashlib.sha256(path.read_bytes()).hexdigest() != source["sha256"]:
+            # Normalize CRLF so core.autocrlf checkouts keep the recorded hash.
+            if hashlib.sha256(path.read_bytes().replace(b"\r\n", b"\n")).hexdigest() != source["sha256"]:
                 raise ValueError(f"Changed source snapshot: {path}")
         checks.append("Notion source snapshot hashes")
         registry = read_json(root / "context/capabilities.json")

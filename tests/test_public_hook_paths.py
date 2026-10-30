@@ -17,7 +17,10 @@ class PublicHookPathTests(unittest.TestCase):
             checkout = Path(folder)
             subprocess.run(["git", "init", "--quiet", str(checkout)], check=True, capture_output=True)
             (checkout / ".venv/bin").mkdir(parents=True)
-            (checkout / ".venv/bin/python").symlink_to(sys.executable)
+            try:
+                (checkout / ".venv/bin/python").symlink_to(sys.executable)
+            except OSError:  # Windows without symlink privilege
+                self.skipTest("symlinks unavailable; POSIX hook command not exercised")
             scripts = checkout / "scripts"
             scripts.mkdir()
             (scripts / "harness.py").write_text(

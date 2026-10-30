@@ -34,6 +34,8 @@ python3.12 -m venv .venv
 .venv/bin/python -m unittest discover -s tests -v
 ```
 
+On Windows, use `python -m venv .venv` and `.venv\Scripts\python.exe` in place of `.venv/bin/python`. Helpers and tests run there; the shipped Codex hook commands are POSIX shell, so native hooks need Git Bash or WSL as the hook shell. The relocated-checkout hook test skips when symlinks are unavailable.
+
 Use an explicit Python 3.12+ executable when creating the environment: `python3` resolves to Python 3.11 in the observed checkout. After setup, use `.venv/bin/python` for all helper commands.
 
 The helpers validate local configuration, source records and progress. They do not run application tests, contact paid model providers or deploy anything. `doctor` reports missing or unavailable capabilities; a successful result does not prove Odoo, AssemblyAI or AWS integration works.
