@@ -106,7 +106,7 @@
       "id": "408365d5182581a38186cf40f8b4b49f",
       "url": "https://app.notion.com/p/408365d5182581a38186cf40f8b4b49f",
       "snapshot": "context/notion/interview.md",
-      "sha256": "8703792705469a98bc45eabd31517b9418700bd1ff804e749ff9e464b0b5f67a",
+      "sha256": "2d17f4a07f6563ed0ff5d5183b44ef9b85123cbc141cd56aea1f482f83849b0c",
       "shared_contract_version": "1.0",
       "verification": "unverified",
       "captured_on": "2026-10-30",
@@ -128,6 +128,13 @@
         "recorded_at": "2026-10-30T15:24:49.162244+00:00",
         "previous_sha256": "f9efab06c359430fb83ca29ebddeb98b6402c3166eafd28dc11b350eb3f1f122",
         "note": "Local document edits were already present before publication; remote Notion was not modified or re-fetched."
+      },
+      "provider_update": {
+        "section": "Tools, APIs and skills",
+        "recorded_at": "2026-10-30T15:27:29.651770+00:00",
+        "previous_sha256": "8703792705469a98bc45eabd31517b9418700bd1ff804e749ff9e464b0b5f67a",
+        "decision": "AssemblyAI for English STT and TTS; English/Vietnamese typed participation retained.",
+        "scope": "Local documentation update; remote Notion and application code unchanged."
       }
     },
     {
@@ -184,6 +191,21 @@
       "url": "https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-circuit-breaker.html",
       "checked_on": "2026-10-30",
       "purpose": "Future deployment rollback"
+    },
+    {
+      "url": "https://www.assemblyai.com/docs/streaming/getting-started/transcribe-streaming-audio",
+      "checked_on": "2026-10-30",
+      "purpose": "AssemblyAI streaming STT for guided English answer drafts"
+    },
+    {
+      "url": "https://www.assemblyai.com/docs/tts/getting-started/quickstart",
+      "checked_on": "2026-10-30",
+      "purpose": "AssemblyAI TTS for English interview questions; account access not tested"
+    },
+    {
+      "url": "https://www.assemblyai.com/docs/streaming/authenticate-with-a-temporary-token",
+      "checked_on": "2026-10-30",
+      "purpose": "Server-issued temporary tokens for browser STT"
     }
   ],
   "observations": [

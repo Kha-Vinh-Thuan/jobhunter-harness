@@ -9,20 +9,20 @@
 
 ## Tools, APIs and skills
 
-<b>Start with:</b> the existing typed interview and reviewed-audio flow.
+<b>Start with:</b> guided typed interviews plus AssemblyAI for English speech-to-text and text-to-speech. Keep English/Vietnamese typed participation available.
 
 | Tool / API | Use in Jobhunter | Status |
 | --- | --- | --- |
-| Browser [MediaRecorder](https://developer.mozilla.org/en-US/docs/Web/API/MediaRecorder)  • [getUserMedia](https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getUserMedia) | Capture bounded audio answers. Requires microphone permission, a secure context and a supported recording format. | Current |
-| [OpenAI Audio Transcriptions](https://developers.openai.com/api/docs/guides/speech-to-text) | Convert completed recordings to text through the backend; retain review and explicit submission before using an answer. | Current |
-| [OpenAI Realtime over WebRTC](https://developers.openai.com/api/docs/guides/voice-webrtc?api=realtime) | Support live spoken interviews if that becomes a product requirement. Needs backend session setup and suitable browser credentials. | Later: live voice |
+| Browser [MediaRecorder](https://developer.mozilla.org/en-US/docs/Web/API/MediaRecorder)  • [getUserMedia](https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getUserMedia) | Capture candidate audio after consent and microphone permission, in a secure context and supported format. | Browser capability; guided integration pending |
+| [AssemblyAI Streaming STT](https://www.assemblyai.com/docs/streaming/getting-started/transcribe-streaming-audio) | Transcribe English answers; keep transcripts as drafts until reviewed and explicitly submitted. | Standalone prototype; guided integration pending |
+| [AssemblyAI Text-to-Speech](https://www.assemblyai.com/docs/tts/getting-started/quickstart) | Speak the agent's English questions and follow-ups, with interruptible playback. | Planned; account access not verified |
 
 <b>Skills to package from this role</b>
 
 - <b>Prepare an interview guide:</b> create questions from approved criteria and evidence gaps.
 - <b>Summarize submitted answers:</b> retain personal contribution, citations and unanswered questions.
 
-These are proposed reusable workflows, not installed plugins. “Current” means found in code. Browser microphone permission does not replace recording consent. Live voice requires a new interaction/consent contract; standard API keys stay on the backend.
+These workflows are proposed, not installed plugins. Browser microphone permission does not replace consent; audio transcription requires review and explicit answer submission. Keep AssemblyAI keys server-side and use [short-lived tokens](https://www.assemblyai.com/docs/streaming/authenticate-with-a-temporary-token) for browser streaming. Typed participation stays available without audio consent.
 
 ## Copy-ready role instructions
 
