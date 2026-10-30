@@ -1,0 +1,264 @@
+{
+  "schema_version": "1.0.0",
+  "harness_version": "1.0.0",
+  "revision": 1,
+  "updated_at": "2026-10-30T14:58:14.659222+00:00",
+  "active_task_id": null,
+  "tasks": [
+    {
+      "id": "HARNESS-001",
+      "title": "Create and verify the separate development harness",
+      "requirement_refs": [
+        "user:accepted-harness-plan"
+      ],
+      "repository": "harness",
+      "dependencies": [],
+      "acceptance_criteria": [
+        {
+          "id": "HARNESS-001-AC1",
+          "description": "Instructions, context, skills and agent definitions preserve scope and accepted decisions."
+        },
+        {
+          "id": "HARNESS-001-AC2",
+          "description": "Progress utilities and lifecycle handlers pass behavior tests."
+        },
+        {
+          "id": "HARNESS-001-AC3",
+          "description": "Codex discovers project skills, agents and hooks; trust/activation limitations are explicit."
+        },
+        {
+          "id": "HARNESS-001-AC4",
+          "description": "Independent sample-assignment review resolves material issues."
+        }
+      ],
+      "status": "completed",
+      "verification": "passed",
+      "evidence": [
+        {
+          "acceptance_ids": [
+            "HARNESS-001-AC1"
+          ],
+          "result": "passed",
+          "command": "Harness content review and scripts/harness.py validate",
+          "reference": "evidence/setup-summary.json",
+          "recorded_at": "2026-10-30T14:58:14.480468+00:00",
+          "repository_revision": null
+        },
+        {
+          "acceptance_ids": [
+            "HARNESS-001-AC2"
+          ],
+          "result": "passed",
+          "command": ".venv/bin/python -m unittest discover -s tests -v",
+          "reference": "evidence/test-results.txt",
+          "recorded_at": "2026-10-30T14:58:14.480468+00:00",
+          "repository_revision": null
+        },
+        {
+          "acceptance_ids": [
+            "HARNESS-001-AC3"
+          ],
+          "result": "passed",
+          "command": "Codex app-server skills/list, hooks/list, config/read; local agent TOML validation",
+          "reference": "evidence/codex-discovery.json",
+          "recorded_at": "2026-10-30T14:58:14.480468+00:00",
+          "repository_revision": null
+        },
+        {
+          "acceptance_ids": [
+            "HARNESS-001-AC4"
+          ],
+          "result": "passed",
+          "command": "Independent sample development assignment and utility review",
+          "reference": "evidence/independent-review.md",
+          "recorded_at": "2026-10-30T14:58:14.480468+00:00",
+          "repository_revision": null
+        }
+      ],
+      "blocker": null,
+      "next_action": "Open this folder in Codex and review/trust hooks through /hooks; choose an application task when ready.",
+      "note": "Development harness created and verified: 33 behavior tests, source/configuration checks, native skill/hook discovery and independent review passed. Hook activation awaits user review/trust; custom role invocation remains untested. Application work is pending.",
+      "updated_at": "2026-10-30T14:58:14.659222+00:00"
+    },
+    {
+      "id": "APP-001",
+      "title": "Align evidence contracts and source provenance",
+      "requirement_refs": [
+        "notion:shared",
+        "notion:filter"
+      ],
+      "repository": "backend",
+      "dependencies": [
+        "HARNESS-001"
+      ],
+      "acceptance_criteria": [
+        {
+          "id": "APP-001-AC1",
+          "description": "Every approved criterion has supported, partial, unknown or conflicting findings with valid source references."
+        },
+        {
+          "id": "APP-001-AC2",
+          "description": "No suitability scores, ranking or automated candidate decisions."
+        }
+      ],
+      "status": "pending",
+      "verification": "not_run",
+      "evidence": [],
+      "blocker": null,
+      "next_action": "Await an explicit application implementation assignment; inspect owning code and prerequisites.",
+      "note": "Planned application work; not implemented by harness setup.",
+      "updated_at": "2026-10-30T14:51:00.851962+00:00"
+    },
+    {
+      "id": "APP-002",
+      "title": "Implement bounded orchestration and durable run state",
+      "requirement_refs": [
+        "notion:orchestrator",
+        "notion:report"
+      ],
+      "repository": "backend",
+      "dependencies": [
+        "APP-001"
+      ],
+      "acceptance_criteria": [
+        {
+          "id": "APP-002-AC1",
+          "description": "Only requested specialists execute with validated handoffs and bounded loops."
+        },
+        {
+          "id": "APP-002-AC2",
+          "description": "Wait/resume/cancel and partial failures survive process restart without duplicate effects."
+        }
+      ],
+      "status": "pending",
+      "verification": "not_run",
+      "evidence": [],
+      "blocker": null,
+      "next_action": "Await an explicit application implementation assignment; inspect owning code and prerequisites.",
+      "note": "Planned application work; not implemented by harness setup.",
+      "updated_at": "2026-10-30T14:51:00.851962+00:00"
+    },
+    {
+      "id": "ODOO-001",
+      "title": "Integrate through a new Odoo addon",
+      "requirement_refs": [
+        "user:odoo-extension",
+        "notion:shared"
+      ],
+      "repository": "odoo",
+      "dependencies": [
+        "APP-001"
+      ],
+      "acceptance_criteria": [
+        {
+          "id": "ODOO-001-AC1",
+          "description": "Odoo identity, record permissions and actual candidate/job/source references are preserved."
+        },
+        {
+          "id": "ODOO-001-AC2",
+          "description": "Harness-enabled jobs have one automation owner; conflicting legacy actions cannot act on the same assignment."
+        }
+      ],
+      "status": "pending",
+      "verification": "not_run",
+      "evidence": [],
+      "blocker": null,
+      "next_action": "Await an explicit application implementation assignment; inspect owning code and prerequisites.",
+      "note": "Planned application work; not implemented by harness setup.",
+      "updated_at": "2026-10-30T14:51:00.851962+00:00"
+    },
+    {
+      "id": "SPEECH-001",
+      "title": "Build guided AssemblyAI interviews",
+      "requirement_refs": [
+        "user:assemblyai",
+        "notion:interview"
+      ],
+      "repository": "backend",
+      "dependencies": [
+        "APP-002",
+        "ODOO-001"
+      ],
+      "acceptance_criteria": [
+        {
+          "id": "SPEECH-001-AC1",
+          "description": "English/Vietnamese typed interviews work without audio consent."
+        },
+        {
+          "id": "SPEECH-001-AC2",
+          "description": "English AssemblyAI STT/TTS require consent and draft transcript review/explicit submission."
+        },
+        {
+          "id": "SPEECH-001-AC3",
+          "description": "Cancellation, speech errors and unanswered questions preserve actual session status."
+        }
+      ],
+      "status": "pending",
+      "verification": "not_run",
+      "evidence": [],
+      "blocker": null,
+      "next_action": "Await an explicit application implementation assignment; inspect owning code and prerequisites.",
+      "note": "Planned application work; not implemented by harness setup.",
+      "updated_at": "2026-10-30T14:51:00.851962+00:00"
+    },
+    {
+      "id": "AWS-001",
+      "title": "Build the backend ECS Fargate deployment pipeline",
+      "requirement_refs": [
+        "user:ecs-fargate-backend-only"
+      ],
+      "repository": "backend",
+      "dependencies": [
+        "APP-002"
+      ],
+      "acceptance_criteria": [
+        {
+          "id": "AWS-001-AC1",
+          "description": "Tests, image build, ECR, staging smoke checks and production promotion are traceable by image digest."
+        },
+        {
+          "id": "AWS-001-AC2",
+          "description": "Durable state is external; health failure and task replacement exercise recovery/rollback."
+        }
+      ],
+      "status": "pending",
+      "verification": "not_run",
+      "evidence": [],
+      "blocker": null,
+      "next_action": "Await an explicit application implementation assignment; inspect owning code and prerequisites.",
+      "note": "Planned application work; not implemented by harness setup.",
+      "updated_at": "2026-10-30T14:51:00.851962+00:00"
+    },
+    {
+      "id": "QA-001",
+      "title": "Verify integrated recruiting workflows",
+      "requirement_refs": [
+        "notion:shared-validation"
+      ],
+      "repository": "backend",
+      "dependencies": [
+        "APP-002",
+        "ODOO-001",
+        "SPEECH-001",
+        "AWS-001"
+      ],
+      "acceptance_criteria": [
+        {
+          "id": "QA-001-AC1",
+          "description": "Required Notion walkthroughs run with recorded results, real evidence and zero authority violations."
+        },
+        {
+          "id": "QA-001-AC2",
+          "description": "Odoo, speech and deployment behavior verified on named target versions; skipped cases remain explicit."
+        }
+      ],
+      "status": "pending",
+      "verification": "not_run",
+      "evidence": [],
+      "blocker": null,
+      "next_action": "Await an explicit application implementation assignment; inspect owning code and prerequisites.",
+      "note": "Planned application work; not implemented by harness setup.",
+      "updated_at": "2026-10-30T14:51:00.851962+00:00"
+    }
+  ]
+}

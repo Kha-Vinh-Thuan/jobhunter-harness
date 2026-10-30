@@ -1,0 +1,35 @@
+{
+  "python": "3.12.3",
+  "python_supported": true,
+  "executables": {
+    "codex": "/opt/homebrew/bin/codex",
+    "git": "/opt/homebrew/bin/git",
+    "docker": "/usr/local/bin/docker",
+    "aws": "/usr/local/bin/aws"
+  },
+  "repositories": [
+    {
+      "id": "backend",
+      "path": "<BACKEND_ROOT>",
+      "status": "available",
+      "missing": []
+    },
+    {
+      "id": "odoo",
+      "path": "<ODOO_ROOT>",
+      "status": "available",
+      "missing": []
+    }
+  ],
+  "native_hooks": {
+    "trust": "review_required_in_codex",
+    "observed_invocations": 0,
+    "note": "Payload tests do not establish native hook activation or trust."
+  },
+  "application_checks": "not_run",
+  "deployment": "not_configured",
+  "sanitization": {
+    "kind": "public_export",
+    "note": "Personal checkout paths replaced with symbolic placeholders; recorded results are unchanged."
+  }
+}

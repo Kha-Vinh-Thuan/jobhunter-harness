@@ -1,0 +1,9 @@
+{
+  "schema_version": "1.0.0",
+  "harness_version": "1.0.0",
+  "name": "jobhunter-harness",
+  "repositories": {
+    "backend": {"path": "../Jobhunter-Platform", "required_paths": ["backend/app", "backend/tests", "CLAUDE.md"]},
+    "odoo": {"path": "../sea-hkt-t10", "required_paths": ["addons/hr_recruitment", "docker-compose.yml"]}
+  }
+}

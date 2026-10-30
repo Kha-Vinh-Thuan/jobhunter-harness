@@ -1,0 +1,78 @@
+{
+  "skills": [
+    {
+      "name": "jobhunter-assemblyai-interview",
+      "path": "<HARNESS_ROOT>/.agents/skills/jobhunter-assemblyai-interview/SKILL.md"
+    },
+    {
+      "name": "jobhunter-aws-deployment",
+      "path": "<HARNESS_ROOT>/.agents/skills/jobhunter-aws-deployment/SKILL.md"
+    },
+    {
+      "name": "jobhunter-odoo-extension",
+      "path": "<HARNESS_ROOT>/.agents/skills/jobhunter-odoo-extension/SKILL.md"
+    },
+    {
+      "name": "jobhunter-recruiting-agents",
+      "path": "<HARNESS_ROOT>/.agents/skills/jobhunter-recruiting-agents/SKILL.md"
+    },
+    {
+      "name": "jobhunter-verification",
+      "path": "<HARNESS_ROOT>/.agents/skills/jobhunter-verification/SKILL.md"
+    }
+  ],
+  "hooks": [
+    {
+      "event": "preCompact",
+      "trust": "untrusted",
+      "source": "<HARNESS_ROOT>/.codex/hooks.json"
+    },
+    {
+      "event": "sessionStart",
+      "trust": "untrusted",
+      "source": "<HARNESS_ROOT>/.codex/hooks.json"
+    },
+    {
+      "event": "stop",
+      "trust": "untrusted",
+      "source": "<HARNESS_ROOT>/.codex/hooks.json"
+    },
+    {
+      "event": "interrupt",
+      "trust": "untrusted",
+      "source": "<HARNESS_ROOT>/.codex/hooks.json"
+    }
+  ],
+  "agents_configuration": {
+    "enabled": true,
+    "max_concurrent_threads_per_session": 3,
+    "max_depth": null,
+    "default_subagent_model": null,
+    "default_subagent_reasoning_effort": null,
+    "job_max_runtime_seconds": null,
+    "interrupt_message": null
+  },
+  "config_layer_count": 4,
+  "native_execution": "not_run",
+  "trust_changed": false,
+  "agent_definitions": {
+    "status": "parsed_and_shape_validated",
+    "names": [
+      "explorer",
+      "implementer",
+      "reviewer"
+    ],
+    "native_role_invocation": "not_run",
+    "discovery_layout": ".codex/agents/*.toml per current Codex documentation"
+  },
+  "sanitization": {
+    "kind": "public_export",
+    "note": "Personal checkout paths replaced with symbolic placeholders; recorded results are unchanged.",
+    "placeholders": [
+      "<HARNESS_ROOT>",
+      "<BACKEND_ROOT>",
+      "<ODOO_ROOT>"
+    ]
+  },
+  "historical_configuration_note": "Observed before public-export hook commands were made portable. Current native hook execution and trust remain unverified."
+}

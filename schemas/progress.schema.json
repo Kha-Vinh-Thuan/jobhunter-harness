@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Jobhunter engineering progress",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "harness_version", "revision", "updated_at", "active_task_id", "tasks"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "harness_version": {"const": "1.0.0"},
+    "revision": {"type": "integer", "minimum": 0},
+    "updated_at": {"type": "string", "format": "date-time"},
+    "active_task_id": {"type": ["string", "null"]},
+    "tasks": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/task"}}
+  },
+  "$defs": {
+    "nonempty": {"type": "string", "minLength": 1},
+    "result": {"enum": ["not_run", "passed", "failed", "not_applicable"]},
+    "evidence": {
+      "type": "object", "additionalProperties": false,
+      "required": ["acceptance_ids", "result", "command", "reference", "recorded_at", "repository_revision"],
+      "properties": {
+        "acceptance_ids": {"type": "array", "uniqueItems": true, "minItems": 1, "items": {"$ref": "#/$defs/nonempty"}},
+        "result": {"$ref": "#/$defs/result"},
+        "command": {"$ref": "#/$defs/nonempty"},
+        "reference": {"$ref": "#/$defs/nonempty"},
+        "recorded_at": {"type": "string", "format": "date-time"},
+        "repository_revision": {"type": ["string", "null"]}
+      }
+    },
+    "task": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "title", "requirement_refs", "repository", "dependencies", "acceptance_criteria", "status", "verification", "evidence", "blocker", "next_action", "note", "updated_at"],
+      "properties": {
+        "id": {"type": "string", "pattern": "^[A-Z]+-[0-9]{3}$"},
+        "title": {"$ref": "#/$defs/nonempty"},
+        "requirement_refs": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"$ref": "#/$defs/nonempty"}},
+        "repository": {"enum": ["harness", "backend", "odoo"]},
+        "dependencies": {"type": "array", "uniqueItems": true, "items": {"type": "string"}},
+        "acceptance_criteria": {
+          "type": "array", "minItems": 1,
+          "items": {"type": "object", "additionalProperties": false, "required": ["id", "description"], "properties": {"id": {"$ref": "#/$defs/nonempty"}, "description": {"$ref": "#/$defs/nonempty"}}}
+        },
+        "status": {"enum": ["pending", "in_progress", "blocked", "completed"]},
+        "verification": {"$ref": "#/$defs/result"},
+        "evidence": {"type": "array", "items": {"$ref": "#/$defs/evidence"}},
+        "blocker": {"type": ["string", "null"]},
+        "next_action": {"type": "string"},
+        "note": {"type": "string"},
+        "updated_at": {"type": "string", "format": "date-time"}
+      }
+    }
+  }
+}

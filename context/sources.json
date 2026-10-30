@@ -1,0 +1,209 @@
+{
+  "harness_version": "1.0.0",
+  "snapshot_recorded_at": "2026-10-30T14:51:00.851962+00:00",
+  "notion": [
+    {
+      "id": "408365d5182581e7addfc3c113c454ed",
+      "url": "https://app.notion.com/p/408365d5182581e7addfc3c113c454ed",
+      "snapshot": "context/notion/shared.md",
+      "sha256": "f5d3c6a0b39dd49f33bcfcbca20c944ba0f8d53f2815b3cf707a488b817aa0f8",
+      "shared_contract_version": "1.0",
+      "verification": "unverified",
+      "captured_on": "2026-10-30",
+      "original_snapshot_sha256": "fcb4d3863fcd198cb1c1a03f4780316b28da72e3a578a895366e31bade71b9fe",
+      "local_revision": {
+        "kind": "existing_local_edits_retained_for_publication",
+        "recorded_at": "2026-10-30T15:24:49.161550+00:00",
+        "previous_sha256": "fcb4d3863fcd198cb1c1a03f4780316b28da72e3a578a895366e31bade71b9fe",
+        "note": "Local document edits were already present before publication; remote Notion was not modified or re-fetched."
+      }
+    },
+    {
+      "id": "408365d518258115a848ffd45d81f7da",
+      "url": "https://app.notion.com/p/408365d518258115a848ffd45d81f7da",
+      "snapshot": "context/notion/orchestrator.md",
+      "sha256": "b45f943f60de0075ef3d5ad7d4f0e94cf770e9689822a782d9d8b22a28455408",
+      "shared_contract_version": "1.0",
+      "verification": "unverified",
+      "captured_on": "2026-10-30",
+      "original_snapshot_sha256": "d792ea938eaa1dbcaedcbe4d759d679b65c67dcf914f3086f1b8c47c32a1fb12",
+      "adaptation": {
+        "kind": "locally_condensed",
+        "adapted_at": "2026-10-30T15:10:30.183386+00:00",
+        "sections": [
+          "WORKING STEPS",
+          "OUTPUT",
+          "STOP CONDITIONS"
+        ],
+        "input_sha256": "d792ea938eaa1dbcaedcbe4d759d679b65c67dcf914f3086f1b8c47c32a1fb12",
+        "input_matches_recorded_snapshot": true,
+        "scope": "Local wording only; remote Notion content unchanged."
+      },
+      "local_revision": {
+        "kind": "existing_local_edits_retained_for_publication",
+        "recorded_at": "2026-10-30T15:24:49.161828+00:00",
+        "previous_sha256": "b661a8cfabe6b195dfcecd4b2643e5c2b3da6cba8b6b817622a00f6d455c2798",
+        "note": "Local document edits were already present before publication; remote Notion was not modified or re-fetched."
+      }
+    },
+    {
+      "id": "408365d5182581c3a2f8f9c4d2e9da7d",
+      "url": "https://app.notion.com/p/408365d5182581c3a2f8f9c4d2e9da7d",
+      "snapshot": "context/notion/filter.md",
+      "sha256": "5b094091579918649e0c4fa0a9b38cb1777e5938735a27f813ed7f3aff8de76c",
+      "shared_contract_version": "1.0",
+      "verification": "unverified",
+      "captured_on": "2026-10-30",
+      "original_snapshot_sha256": "e3ad701d8ee79b6220c5ad9cbbc793a0c984a2c5ed2694b80db70f47298713dc",
+      "adaptation": {
+        "kind": "locally_condensed",
+        "adapted_at": "2026-10-30T15:10:30.183764+00:00",
+        "sections": [
+          "WORKING STEPS",
+          "OUTPUT",
+          "STOP CONDITIONS"
+        ],
+        "input_sha256": "9eddebe23ec78dd1d19e45040236327bedfcae99a6880c4c39cba075dbd4887d",
+        "input_matches_recorded_snapshot": false,
+        "scope": "Local wording only; remote Notion content unchanged."
+      },
+      "local_revision": {
+        "kind": "existing_local_edits_retained_for_publication",
+        "recorded_at": "2026-10-30T15:24:49.161957+00:00",
+        "previous_sha256": "75515a095db8d46519753eeb0a58f9aebb5a72d33538e43b640fb886b1ab9d1c",
+        "note": "Local document edits were already present before publication; remote Notion was not modified or re-fetched."
+      }
+    },
+    {
+      "id": "408365d5182581ba84a8cf1f2be4e568",
+      "url": "https://app.notion.com/p/408365d5182581ba84a8cf1f2be4e568",
+      "snapshot": "context/notion/schedule.md",
+      "sha256": "e0c26fde96bd0e780f956dc5217a310c618c30169e33aa8f82ab78401b50243c",
+      "shared_contract_version": "1.0",
+      "verification": "unverified",
+      "captured_on": "2026-10-30",
+      "original_snapshot_sha256": "760656f7971a276aeac6eee474685b7741dd3d5a244d4dd0a12b8c91325d9f04",
+      "adaptation": {
+        "kind": "locally_condensed",
+        "adapted_at": "2026-10-30T15:10:30.184041+00:00",
+        "sections": [
+          "WORKING STEPS",
+          "OUTPUT",
+          "STOP CONDITIONS"
+        ],
+        "input_sha256": "760656f7971a276aeac6eee474685b7741dd3d5a244d4dd0a12b8c91325d9f04",
+        "input_matches_recorded_snapshot": true,
+        "scope": "Local wording only; remote Notion content unchanged."
+      },
+      "local_revision": {
+        "kind": "existing_local_edits_retained_for_publication",
+        "recorded_at": "2026-10-30T15:24:49.162103+00:00",
+        "previous_sha256": "b8b51c34cee760c7fa1d77dc2e42a896c94fb6d1608bb7a9f6c0c7fff11f0b69",
+        "note": "Local document edits were already present before publication; remote Notion was not modified or re-fetched."
+      }
+    },
+    {
+      "id": "408365d5182581a38186cf40f8b4b49f",
+      "url": "https://app.notion.com/p/408365d5182581a38186cf40f8b4b49f",
+      "snapshot": "context/notion/interview.md",
+      "sha256": "8703792705469a98bc45eabd31517b9418700bd1ff804e749ff9e464b0b5f67a",
+      "shared_contract_version": "1.0",
+      "verification": "unverified",
+      "captured_on": "2026-10-30",
+      "original_snapshot_sha256": "0a95e6583f9f033c65b7bc0965e9d0bf442922bb2b46f92b5142178f7ee54778",
+      "adaptation": {
+        "kind": "locally_condensed",
+        "adapted_at": "2026-10-30T15:10:30.184250+00:00",
+        "sections": [
+          "WORKING STEPS",
+          "OUTPUT",
+          "STOP CONDITIONS"
+        ],
+        "input_sha256": "0a95e6583f9f033c65b7bc0965e9d0bf442922bb2b46f92b5142178f7ee54778",
+        "input_matches_recorded_snapshot": true,
+        "scope": "Local wording only; remote Notion content unchanged."
+      },
+      "local_revision": {
+        "kind": "existing_local_edits_retained_for_publication",
+        "recorded_at": "2026-10-30T15:24:49.162244+00:00",
+        "previous_sha256": "f9efab06c359430fb83ca29ebddeb98b6402c3166eafd28dc11b350eb3f1f122",
+        "note": "Local document edits were already present before publication; remote Notion was not modified or re-fetched."
+      }
+    },
+    {
+      "id": "408365d51825815c96b1d83ce19f6dc1",
+      "url": "https://app.notion.com/p/408365d51825815c96b1d83ce19f6dc1",
+      "snapshot": "context/notion/report.md",
+      "sha256": "a4173f8cbb92d2338bc2c32b06afc44dabc4b2147734156a2a57303eb8720787",
+      "shared_contract_version": "1.0",
+      "verification": "unverified",
+      "captured_on": "2026-10-30",
+      "original_snapshot_sha256": "fd946d43aa693c56bf7a010069c7c06368c7c993e2266f883786b058247344d6",
+      "adaptation": {
+        "kind": "locally_condensed",
+        "adapted_at": "2026-10-30T15:10:30.184445+00:00",
+        "sections": [
+          "WORKING STEPS",
+          "OUTPUT",
+          "STOP CONDITIONS"
+        ],
+        "input_sha256": "fd946d43aa693c56bf7a010069c7c06368c7c993e2266f883786b058247344d6",
+        "input_matches_recorded_snapshot": true,
+        "scope": "Local wording only; remote Notion content unchanged."
+      },
+      "local_revision": {
+        "kind": "existing_local_edits_retained_for_publication",
+        "recorded_at": "2026-10-30T15:24:49.162409+00:00",
+        "previous_sha256": "e8ae682fa076313ff1155ed2ff969183826cc81b7072c0a1225fea1aee9a501a",
+        "note": "Local document edits were already present before publication; remote Notion was not modified or re-fetched."
+      }
+    }
+  ],
+  "official_references": [
+    {
+      "url": "https://learn.chatgpt.com/docs/hooks",
+      "checked_on": "2026-10-30",
+      "purpose": "Codex hook schema, event behavior and trust"
+    },
+    {
+      "url": "https://learn.chatgpt.com/docs/build-skills",
+      "checked_on": "2026-10-30",
+      "purpose": "Local skill discovery"
+    },
+    {
+      "url": "https://learn.chatgpt.com/docs/agent-configuration/subagents",
+      "checked_on": "2026-10-30",
+      "purpose": "Standalone custom agent configuration"
+    },
+    {
+      "url": "https://www.assemblyai.com/blog/build-a-voice-assistant-app-with-assemblyai",
+      "checked_on": "2026-10-30",
+      "purpose": "AssemblyAI English STT/TTS; account access not tested"
+    },
+    {
+      "url": "https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-circuit-breaker.html",
+      "checked_on": "2026-10-30",
+      "purpose": "Future deployment rollback"
+    }
+  ],
+  "observations": [
+    {
+      "repository": "backend",
+      "revision": "c2de0aeca67304349694ebb69db06feeb9630948",
+      "observed_on": "2026-10-30",
+      "finding": "Planning baseline: 47 passed, 2 skipped from backend/ with live credentials disabled. Historical observation, not rerun by harness setup."
+    },
+    {
+      "repository": "odoo",
+      "revision": "f2a2624b626a80bdf1e9f8ef3034b1a9daa7ff91",
+      "observed_on": "2026-10-30",
+      "finding": "docker exec sea-hkt-t10-odoo-1 odoo --version reported Odoo Server 20.0-20261015. Existing Dockerfile uses unpinned odoo:latest."
+    }
+  ],
+  "limitations": [
+    "Notion pages are unverified source specifications, not evidence of implemented behavior.",
+    "Original Notion technical tooling examples describe a different TypeScript implementation.",
+    "Remote source snapshots are pinned inputs; re-fetch before a task that depends on changed source requirements.",
+    "Original local skills reference official documents; no Internet skill package was vendored."
+  ]
+}

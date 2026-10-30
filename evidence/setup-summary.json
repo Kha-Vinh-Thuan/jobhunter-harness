@@ -1,0 +1,61 @@
+{
+  "recorded_at": "2026-10-30T15:24:50.473347+00:00",
+  "harness_version": "1.0.0",
+  "checks": [
+    {
+      "check": "unit-tests",
+      "command": "<HARNESS_ROOT>/.venv/bin/python -m unittest discover -s tests -v",
+      "exit_code": 0,
+      "result": "passed",
+      "reference": "evidence/test-results.txt",
+      "sha256": "60d8610b348832a51b26282b85ff93450a5e1b166583128a4100479fafbbe4fa"
+    },
+    {
+      "check": "harness-validation",
+      "command": "<HARNESS_ROOT>/.venv/bin/python scripts/harness.py validate",
+      "exit_code": 0,
+      "result": "passed",
+      "reference": "evidence/harness-validation.json",
+      "sha256": "21a30b24901d294081fe9bbcf4ebf002976d2d275245f3b2934068686adaae68"
+    },
+    {
+      "check": "environment-doctor",
+      "command": "<HARNESS_ROOT>/.venv/bin/python scripts/harness.py doctor",
+      "exit_code": 0,
+      "result": "passed",
+      "reference": "evidence/doctor.json",
+      "sha256": "0ba6ddc0868abac2f97230880cd3469f95748b5b3b014396e3cad514152ec86a"
+    }
+  ],
+  "application_repositories": {
+    "backend": {
+      "revision": "c2de0aeca67304349694ebb69db06feeb9630948",
+      "working_tree": "clean",
+      "setup_writes": "none"
+    },
+    "odoo": {
+      "revision": "f2a2624b626a80bdf1e9f8ef3034b1a9daa7ff91",
+      "working_tree": "clean",
+      "setup_writes": "none"
+    }
+  },
+  "skill_count": 5,
+  "development_agent_count": 3,
+  "native_hook_count": 4,
+  "limitations": [
+    "Native hooks discovered but untrusted; native execution not performed.",
+    "Custom agent definitions pass parse/shape checks; native role invocation not performed.",
+    "Application integrations and AWS deployment were not run."
+  ],
+  "sanitization": {
+    "kind": "public_export",
+    "note": "Personal checkout paths replaced with symbolic placeholders; recorded results are unchanged.",
+    "placeholders": [
+      "<HARNESS_ROOT>",
+      "<BACKEND_ROOT>",
+      "<ODOO_ROOT>"
+    ]
+  },
+  "test_count": 34,
+  "publication_preparation": "Hook commands resolve from Git root; relocation/subdirectory behavior is verified. Native trust remains required."
+}

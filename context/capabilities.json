@@ -1,0 +1,69 @@
+{
+  "version": "1.0.0",
+  "capabilities": [
+    {
+      "id": "local-harness-tools",
+      "kind": "local",
+      "purpose": "Validate harness configuration and maintain engineering progress with revision checks.",
+      "availability": "check_each_session",
+      "prerequisites": ["Python 3.12+", "Dependencies from requirements.txt installed in the selected interpreter"],
+      "failure_behavior": "Report the interpreter or dependency failure; do not claim validation or progress persistence succeeded."
+    },
+    {
+      "id": "application-repositories",
+      "kind": "filesystem",
+      "purpose": "Inspect the existing Python backend and Odoo app, and edit only explicitly assigned owning repositories.",
+      "availability": "check_each_session",
+      "prerequisites": ["Repository bindings resolve through harness.json and optional harness.local.json", "Host permission and task scope permit the intended operation"],
+      "failure_behavior": "Record the missing path or denied operation and continue independent harness work; never substitute a new application codebase here."
+    },
+    {
+      "id": "codex-launcher-and-subagents",
+      "kind": "cli",
+      "purpose": "Launch a development session and delegate bounded explorer, implementer and reviewer tasks.",
+      "availability": "check_each_session",
+      "prerequisites": ["Installed signed-in Codex CLI", "Project configuration trusted and supported by the active host"],
+      "failure_behavior": "Show a dry-run command or report the unavailable host feature; use the same development loop without pretending subagents ran."
+    },
+    {
+      "id": "codex-lifecycle-hooks",
+      "kind": "host",
+      "purpose": "Load session context, preserve sanitized checkpoints and validate handoffs at configured lifecycle events.",
+      "availability": "requires_manual_trust",
+      "prerequisites": ["Hook-capable Codex host", "Trusted project configuration", "Exact current hook definitions reviewed and trusted through /hooks"],
+      "failure_behavior": "Run explicit helper checks and record checkpoints manually; do not bypass trust or claim hooks are active."
+    },
+    {
+      "id": "connected-notion",
+      "kind": "mcp",
+      "purpose": "Read the linked shared and role specifications and refresh source provenance when requested.",
+      "availability": "session_dependent",
+      "prerequisites": ["Relevant connected read tool available in this session", "Connection authorized for the requested pages"],
+      "failure_behavior": "Use recorded local snapshots with their dates and limitations; identify a required refresh without inventing current remote content."
+    },
+    {
+      "id": "official-documentation",
+      "kind": "research",
+      "purpose": "Verify current Codex, Odoo, AssemblyAI and AWS interfaces before relying on them.",
+      "availability": "session_dependent",
+      "prerequisites": ["An available documentation connector or allowed web access", "Primary documentation relevant to the actual version and task"],
+      "failure_behavior": "Retain source dates and material uncertainty; do not invent APIs or report unverified integration behavior."
+    },
+    {
+      "id": "live-application-validation",
+      "kind": "integration",
+      "purpose": "Verify explicitly assigned application changes against Odoo, AssemblyAI or model providers.",
+      "availability": "not_assumed",
+      "prerequisites": ["Running target application", "Required credentials provisioned without exposure", "Authorized live test scope and suitable test data"],
+      "failure_behavior": "Run appropriate offline checks and label live checks not_run; never substitute mock evidence for a live result."
+    },
+    {
+      "id": "aws-deployment",
+      "kind": "cloud",
+      "purpose": "Prepare and later verify the backend ECS Fargate pipeline in the application repository.",
+      "availability": "not_assumed",
+      "prerequisites": ["Explicit deployment assignment", "AWS account/region and scoped credentials", "Reviewable application pipeline and infrastructure artifacts"],
+      "failure_behavior": "Keep prepared artifacts distinct from deployment; record the missing prerequisite and do not create cloud resources during harness setup."
+    }
+  ]
+}

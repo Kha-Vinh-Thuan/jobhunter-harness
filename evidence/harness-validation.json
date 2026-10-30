@@ -1,0 +1,12 @@
+{
+  "status": "passed",
+  "checks": [
+    "progress schema, transitions, evidence, and repository bindings",
+    "Codex configuration and development agent definitions",
+    "skill metadata and discovery layout",
+    "Notion source snapshot hashes"
+  ],
+  "failures": [],
+  "native_activation": "not_verified",
+  "application_checks": "not_run"
+}
