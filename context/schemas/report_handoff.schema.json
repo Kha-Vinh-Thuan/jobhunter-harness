@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "jobhunter/report-handoff/v1",
+  "title": "Jobhunter Report Response",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "run_id", "report_status", "overall_status", "summary", "branch_states",
+    "findings", "evidence_gaps", "limitations", "open_items", "next_actions", "artifact_refs"
+  ],
+  "properties": {
+    "run_id": {"type": "string", "minLength": 1},
+    "report_status": {"enum": ["Complete", "Needs input"]},
+    "overall_status": {"enum": ["Complete", "Needs input", "Failed"]},
+    "summary": {"type": "string"},
+    "branch_states": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name", "status", "requested"],
+        "properties": {
+          "name": {"type": "string"},
+          "status": {"enum": ["Complete", "Needs input", "Failed", "blocked", "cancelled", "outdated"]},
+          "requested": {"type": "boolean"},
+          "summary": {"type": "string"},
+          "findings": {"type": "array", "items": {"type": "object"}},
+          "evidence_gaps": {"type": "array", "items": {"type": "object"}},
+          "limitations": {"type": "array", "items": {"type": "string"}},
+          "open_items": {"type": "array", "items": {"type": "string"}},
+          "next_action": {"type": "string"},
+          "artifact_refs": {"type": "array", "items": {"type": "object"}}
+        }
+      }
+    },
+    "findings": {"type": "array", "items": {"type": "object"}},
+    "evidence_gaps": {"type": "array", "items": {"type": "object"}},
+    "limitations": {"type": "array", "items": {"type": "string"}},
+    "open_items": {"type": "array", "items": {"type": "string"}},
+    "next_actions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["branch", "action", "owner"],
+        "properties": {
+          "branch": {"type": "string"},
+          "action": {"type": "string"},
+          "owner": {"type": "string"}
+        }
+      }
+    },
+    "artifact_refs": {"type": "array", "items": {"type": "object"}}
+  }
+}

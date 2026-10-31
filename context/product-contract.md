@@ -27,6 +27,12 @@ Runtime coordination is request → Orchestrator → relevant specialists → Or
 
 Each handoff identifies assignment/context, result (`Complete`, `Needs input` or `Failed`), output references or clearly labeled unsaved draft, open items and next action/owner. Those result labels do not replace persisted application task/run statuses; preserve actual interrupted/cancelled states separately.
 
+The Report Agent response contract is machine-readable in
+`context/schemas/report_handoff.schema.json`. It separates `report_status`
+(whether the report assignment compiled) from `overall_status` (whether the
+recruiting workflow is complete). This prevents a faithful partial report from
+being mistaken for a completed recruiting outcome.
+
 ## Interview and deployment decisions
 
 Use AssemblyAI for both speech-to-text and text-to-speech. Voice participation is English; typed answers support English and Vietnamese. Verify the provider's current API, language support and account access before implementation; missing capabilities must remain explicit rather than being silently replaced with another provider.

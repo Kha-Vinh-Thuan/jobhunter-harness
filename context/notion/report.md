@@ -52,6 +52,40 @@ STOP CONDITIONS
 <b>Synthetic fixture:</b> Filter completed a cited Kotlin review; profiling remains <code>unknown</code>. Schedule needs the interviewer's time zone. Interview was not requested.
 
 <b>Expected:</b> “Partial: evidence review complete; scheduling needs input. Kotlin usage is self-reported; profiling evidence is unknown. Interview not requested. Recruiter: supply the interviewer's time zone.” Preserve Filter's citations. The Report handoff can be <b>Complete</b> while the overall request remains <b>Needs input</b>. Do not say a meeting is booked or the candidate should advance.
+
+## Implementation contract v1
+
+The Report Agent consumes validated specialist handoffs. It must not invent
+findings, citations, artifact references, decisions or completed actions.
+
+Every response must preserve:
+
+- `run_id`, assignment identity and candidate/role context;
+- each branch's actual status, including `not requested`, `blocked`, `failed`,
+  `cancelled` and `outdated` branches;
+- criterion findings, evidence gaps, limitations and artifact references;
+- concrete next actions with an owner supplied by the Orchestrator.
+
+`report_status` describes whether the Report assignment was compiled.
+`overall_status` describes the recruiting workflow and may remain `Needs input`
+even when `report_status` is `Complete`. The machine-readable v1 response
+contract is `context/schemas/report_handoff.schema.json`.
+
+The Report Agent must never emit candidate ranking, suitability score,
+selection/rejection recommendation, stage change, outreach action or booking
+confirmation. A formatter may change presentation only; it cannot change the
+structured output or status.
+
+Minimum contract tests:
+
+1. Preserve every supplied finding and artifact reference.
+2. Keep incomplete, failed, cancelled and outdated branches visible.
+3. Mark an overall report `Needs input` when a requested branch has unresolved
+   gaps or open items.
+4. Mark a requested failed branch as overall `Failed`.
+5. Preserve branches marked not requested without treating them as failures.
+6. Reject missing run/candidate/assignment identity instead of generating a
+   report from ambiguous context.
 </content>
 </page>
 
